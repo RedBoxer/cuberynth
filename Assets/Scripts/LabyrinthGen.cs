@@ -9,6 +9,7 @@ public class LabyrinthGen : MonoBehaviour
     public LabyrinthTile tile;
     public GameObject player;
     public GameObject glass;
+    public bool spawningPlane = false;
 
     public class Pair<T, U>
     {
@@ -64,8 +65,10 @@ public class LabyrinthGen : MonoBehaviour
         cover.transform.parent = this.transform;
 
         GeneratePath(new Pair<int, int>(1,1));
-
-        SpawnPlayer();
+        if (spawningPlane)
+        {
+            SpawnPlayer();
+        }
     }
 
     public void SpawnPlayer()
